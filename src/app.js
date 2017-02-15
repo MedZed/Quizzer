@@ -12,7 +12,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get('/', function (request, response) {
-	response.render("add");
+		fs.readFile("./public/quiz.json", function (err, data) {
+
+		var parsedData = JSON.parse(data);
+
+				response.render('add', { count: parsedData.length});
+
+
+	});
 
 });
 
@@ -33,13 +40,15 @@ app.post('/newquiz', function (request, response) {
 	newQuiz.falseOne = falseOne
 	newQuiz.falseTwo = falseTwo
 	newQuiz.falseThree = falseThree
-	fs.readFile("./resources/quiz.json", function (err, data) {
+	fs.readFile("./public/quiz.json", function (err, data) {
 
 		var parsedData = JSON.parse(data);
 
 		parsedData.push(newQuiz);
 
 		writeFileFunction(parsedData);
+		// console.log(parsedData.length);
+
 
 	});
 
@@ -47,13 +56,14 @@ app.post('/newquiz', function (request, response) {
 
 		var newQuizInfo = JSON.stringify(newQuizInfo);
 
-		fs.writeFile("./resources/quiz.json", newQuizInfo, function (err) {
+		fs.writeFile("./public/quiz.json", newQuizInfo, function (err) {
 			
-
+			
 			if (err) {
 				throw err;
 			}
 		});
+
 	};
 				// response.render('add', { message: "seccessfuly added a new question" , msgType: "alert alert-dismissible alert-info" });
 

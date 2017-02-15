@@ -8,8 +8,13 @@ html
 				.panel-heading
 					h3.panel-title Add a new question
 				.panel-body
-					if(message)
-						div(class="#{msgType}") #{message}
+					ul.nav.nav-pills.pull-right
+						li.active
+							a(href='/quiz.json')
+								| View Json 
+								span.badge #{count}
+					br
+					br
 					br
 					br
 					form(action='/newquiz' method='post')
