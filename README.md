@@ -16,4 +16,4 @@ Save quiz questions with answers in Json file (node)
 
 ## Screenshot :
 
-![Quizzer](./screenshot.JPG)
+![Quizzer](./Screenshot.JPG)
