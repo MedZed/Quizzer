@@ -1,6 +1,6 @@
 {
-  "name": "Start on Heroku: Node.js",
-  "description": "A barebones Node.js app using Express 4",
+  "name": "Quizzer : Node.js",
+  "description": "save Quiz to json file ",
   "repository": "https://github.com/MedZed/Quizzer",
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
   "keywords": ["node", "express", "static"],
