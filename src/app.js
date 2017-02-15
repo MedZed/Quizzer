@@ -2,6 +2,7 @@ var express = require('express');
 var fs = require('fs');
 var bodyParser = require('body-parser');
 var app = express();
+var http = require('http').Server(app);
 
 app.set('views', 'src/views');
 app.set('view engine', 'jade');
@@ -60,7 +61,10 @@ app.post('/newquiz', function (request, response) {
 
 });
 
-
-var server = app.listen(3000, function () {
-	console.log('Example app listening on port: ' + server.address().port);
+http.listen(process.env.PORT || 3000, function(){
+  console.log('listening on', http.address().port);
 });
+
+// var server = app.listen(3000, function () {
+// 	console.log('Example app listening on port: ' + server.address().port);
+// });
