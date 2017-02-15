@@ -1,0 +1,32 @@
+html
+	head
+		title add new question
+		link(rel='stylesheet', href='/css/bootstrap.yeti.min.css')
+	body.text-center
+		.container
+			.panel.panel-primary
+				.panel-heading
+					h3.panel-title Add a new question
+				.panel-body
+					if(message)
+						div(class="#{msgType}") #{message}
+					br
+					br
+					form(action='/newquiz' method='post')
+						input.form-control(type='text' name='question' placeholder='what is the question?' required)
+						br
+						br
+						br
+						input.form-control.true(type='text' name='correct' placeholder='the correct answer' required)
+						br
+						input.form-control.false(type='text' name='falseOne' placeholder='the first incorrect answer' required)
+						br
+						input.form-control.false(type='text' name='falseTwo' placeholder='the second incorrect answer')
+						br
+						input.form-control.false(type='text' name='falseThree' placeholder='the third incorrect answer')
+						br
+						br
+						input.form-control(type='submit' class='btn btn-primary' value='add question')
+
+							
+
